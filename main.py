@@ -9,12 +9,14 @@ from PIL import Image
 
 imgName=raw_input("enter name of image : ")
 model = load_model('model_keras_mnist.h5')
-testIMG = Image.open('testIMG/'+str(imgName)+'.png')
+
+##testIMG = Image.open('testIMG/'+str(imgName)+'.png').convert('LA')
+testIMG = image.load_img(path="testIMG/"+str(imgName)+".png",color_mode="grayscale",target_size=(28,28,1))
+print(np.array(testIMG).shape)
+testIMG = testIMG.resize([28,28])
 
 #converting to np array for prediction
 img = np.array(testIMG)
-check1 = img.reshape((1,)+img.shape+(1,))
-print(check1.shape)
 print(img.shape)
 
 #reshaping to 1D array
