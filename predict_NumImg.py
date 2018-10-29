@@ -54,10 +54,10 @@ model.fit(x_train,Y_train,
 	epochs=2,
 	verbose=1,
 	validation_data=(x_test,Y_test))
-model.save('model_keras_mnist')
+model.save('model_keras_mnist.h5')
 
 #find accuracy and loss
-model_NumImgReg = load_model('model_keras_mnist')
+model_NumImgReg = load_model('model_keras_mnist.h5')
 
 result = model_NumImgReg.evaluate(x_test,Y_test,verbose=1)
 
